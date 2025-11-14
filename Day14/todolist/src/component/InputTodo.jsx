@@ -1,19 +1,19 @@
-import React from "react";
+import React, { useState } from 'react'
 
 const InputToDo = ({inputHandler}) => {
-    const [inputValue, setInputValue] = React.useState("");
+    const [inputValue, setInputValue] = useState("");
     const addTask = () => {
-        if (inputValue.trim() === "") return;
+        if (inputValue === "") return;
         inputHandler(inputValue);
         setInputValue("");
     }
-  return (
-    <div className="input-todo">
-        <input type="text" name="todo-input" id="todo-input"
-            value={inputValue}
-            onChange={(e) => setInputValue(e.target.value)}/>
-        <button onClick={(addTask)}>Add</button>
+    return (
+        <div className="input-todo">
+            <input type="text" name="input-todo" id="input-todo"
+                onChange={(e) => setInputValue(e.target.value)} />
+            <button onClick={addTask}>ADD</button>
         </div>
-  );
-}   
-export default InputToDo;
+    )
+}
+
+export default InputToDo

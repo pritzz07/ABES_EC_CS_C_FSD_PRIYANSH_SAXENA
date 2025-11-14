@@ -1,18 +1,27 @@
-import { useState } from "react"; 
-import InputTodo from "./component/InputTodo.jsx";
+import { useState } from "react"
+import InputTodo from "./component/InputTodo"
 function App() {
-  const[todoList, setTodoList] = useState([]);
-  const inputHandler=(inputvalue)=>{
-    setTodoList([...todoList, inputvalue]);
+  const [todoList, setTodoList] = useState([]);
+  const inputHandler = (inputVal) => {
+    setTodoList([...todoList, inputVal]);
+  }
+  const deleteHandler = (index) => {
+    let newList = [...todoList];
+    newList.splice(index, 1);
+    setTodoList(newList);
   }
   return (
     <div className="todo-list">
       <h2>TODO LIST</h2>
-      {todoList.map((data) =>
-        <li key={index}>{data}
-        </li>)
-    }
-      <InputTodo inputHandler={inputHandler}/>
-      </div>
+      {todoList.map((data, index) =>
+        <li key={index}>
+          {data}
+          <button onClick={() => deleteHandler(index)}>DEL</button>
+        </li>
+      )}
+      <InputTodo inputHandler={inputHandler} />
+    </div>
   )
 }
+
+export default App
