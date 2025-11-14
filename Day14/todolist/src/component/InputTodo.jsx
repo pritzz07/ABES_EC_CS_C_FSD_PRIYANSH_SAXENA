@@ -1,25 +1,32 @@
-import React, { useState } from "react";
+import { useState, useEffect } from "react";
 
-const InputTodo = ({ inputHandler }) => {
+const InputTodo = ({ inputHandler, editValue }) => {
   const [inputValue, setInputValue] = useState("");
 
-  const addTask = () => {
+ 
+  useEffect(() => {
+    setInputValue(editValue);
+  }, [editValue]);
+
+  const addOrUpdateTask = () => {
     if (inputValue.trim() === "") return;
     inputHandler(inputValue);
-    setInputValue("");
+    setInputValue(""); 
   };
 
   return (
     <div className="input-container">
       <input
+        id="todo-input"
         type="text"
         className="todo-input"
-        value={inputValue}
         placeholder="Enter a task..."
+        value={inputValue}
         onChange={(e) => setInputValue(e.target.value)}
       />
-      <button className="add-btn" onClick={addTask}>
-        Add
+
+      <button className="add-btn" onClick={addOrUpdateTask}>
+        {editValue ? "Update" : "Add"}
       </button>
     </div>
   );

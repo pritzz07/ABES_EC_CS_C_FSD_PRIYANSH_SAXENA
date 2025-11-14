@@ -1,18 +1,34 @@
 import { useState } from "react";
 import InputTodo from "./component/InputTodo";
-import "./App.css"; // ⭐ add this
+import "./App.css";
 
 function App() {
   const [todoList, setTodoList] = useState([]);
+  const [editIndex, setEditIndex] = useState(null);
 
   const inputHandler = (inputVal) => {
-    setTodoList([...todoList, inputVal]);
+    if (editIndex === null) {
+      
+      setTodoList([...todoList, inputVal]);
+    } else {
+      
+      const updatedList = [...todoList];
+      updatedList[editIndex] = inputVal;
+      setTodoList(updatedList);
+      setEditIndex(null); 
+    }
   };
 
+ 
   const deleteHandler = (index) => {
-    let newList = [...todoList];
+    const newList = [...todoList];
     newList.splice(index, 1);
     setTodoList(newList);
+  };
+
+  // EDIT TASK - send value to InputTodo
+  const editHandler = (index) => {
+    setEditIndex(index);
   };
 
   return (
@@ -23,14 +39,37 @@ function App() {
         {todoList.map((data, index) => (
           <div className="todo-item" key={index}>
             <span>{data}</span>
-            <button className="delete-btn" onClick={() => deleteHandler(index)}>
-              ✕
-            </button>
+
+            <div style={{ display: "flex", gap: "8px" }}>
+              <button
+                style={{
+                  background: "#0099ff",
+                  color: "white",
+                  padding: "6px 10px",
+                  border: "none",
+                  borderRadius: "6px",
+                  cursor: "pointer",
+                }}
+                onClick={() => editHandler(index)}
+              >
+                Edit
+              </button>
+
+              <button
+                className="delete-btn"
+                onClick={() => deleteHandler(index)}
+              >
+                ✕
+              </button>
+            </div>
           </div>
         ))}
       </div>
 
-      <InputTodo inputHandler={inputHandler} />
+      <InputTodo
+        inputHandler={inputHandler}
+        editValue={editIndex !== null ? todoList[editIndex] : ""}
+      />
     </div>
   );
 }
