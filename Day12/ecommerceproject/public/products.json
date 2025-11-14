@@ -1,0 +1,52 @@
+[
+  {
+    "title": "Wireless Noise-Canceling Headphones",
+    "price": "₹4,999",
+    "img": "https://source.unsplash.com/800x800/?headphones&sig=1"
+  },
+  {
+    "title": "Smart Fitness Watch",
+    "price": "₹2,799",
+    "img": "https://source.unsplash.com/800x800/?smartwatch&sig=2"
+  },
+  {
+    "title": "Mechanical RGB Gaming Keyboard",
+    "price": "₹3,299",
+    "img": "https://source.unsplash.com/800x800/?gaming-keyboard&sig=3"
+  },
+  {
+    "title": "Ultra-HD Streaming Webcam",
+    "price": "₹1,999",
+    "img": "https://source.unsplash.com/800x800/?webcam&sig=4"
+  },
+  {
+    "title": "Bluetooth Portable Speaker",
+    "price": "₹1,499",
+    "img": "https://source.unsplash.com/800x800/?speaker&sig=5"
+  },
+  {
+    "title": "Compact Drone with 4K Camera",
+    "price": "₹9,999",
+    "img": "https://source.unsplash.com/800x800/?drone&sig=6"
+  },
+  {
+    "title": "Minimalist Laptop Stand",
+    "price": "₹899",
+    "img": "https://source.unsplash.com/800x800/?laptop-stand&sig=7"
+  },
+  {
+    "title": "Smart LED Light Strip",
+    "price": "₹749",
+    "img": "https://source.unsplash.com/800x800/?led-light&sig=8"
+  },
+  {
+    "title": "Wireless Charging Pad",
+    "price": "₹1,099",
+    "img": "https://source.unsplash.com/800x800/?charging-pad&sig=9"
+  },
+  {
+    "title": "Ergonomic Gaming Chair",
+    "price": "₹12,499",
+    "img": "https://source.unsplash.com/800x800/?gaming-chair&sig=10"
+  }
+]
